@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace CarEventArgs
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Console.WriteLine("***** Fun with Events *****\n");
             Car c1 = new Car("SlugBug", 100, 10);
@@ -26,7 +23,6 @@ namespace CarEventArgs
             for (int i = 0; i < 6; i++)
                 c1.Accelerate(20);
 
-            Console.ReadLine();
         }
 
         #region Targets for events
@@ -34,9 +30,8 @@ namespace CarEventArgs
         {
             // Just to be safe, perform a
             // runtime check before casting.
-            if (sender is Car)
+            if (sender is Car c)
             {
-                Car c = (Car)sender;
                 Console.WriteLine("Critical Message from {0}: {1}", c.PetName, e.msg);
             }
         }
